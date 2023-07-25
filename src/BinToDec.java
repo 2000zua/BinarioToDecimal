@@ -16,7 +16,25 @@ public class BinToDec {
 
     public static void start(){
         String input = JOptionPane.showInputDialog(null, "Digite o numero em decimal");
-        int decimalNumber = BinToDec.binTodec(input);
-        JOptionPane.showMessageDialog(null, "Binary: "+input+" To Decimal: "+decimalNumber);
+        if (verificador(input, input.length())){
+            int decimalNumber = BinToDec.binTodec(input);
+            JOptionPane.showMessageDialog(null, "Binary: "+input+" To Decimal: "+decimalNumber);
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro. Digite apenas um binario ");
+        }
+
+    }
+
+    public static boolean verificador(String str, int n){
+
+        for (int i = 0; i < n; n++){
+            if (str.charAt(i) == '0' || str.charAt(i) == '1'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+
     }
 }
